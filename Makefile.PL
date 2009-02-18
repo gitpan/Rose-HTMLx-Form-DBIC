@@ -13,6 +13,7 @@ WriteMakefile(
                      'Rose::Object' => 0.85,
                      'Rose::HTML::Object' => 0.554,
                      'DBIx::Class::ResultSet::RecursiveUpdate' => 0,
+                     'Moose' => 0,
                     },
 );
 
