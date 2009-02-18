@@ -4,10 +4,8 @@ use strict;
 use warnings;
 use Moose;
 use DBIx::Class;
-use YAML;
-use List::Util 'first';
 use Template;
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.2');
 
 has 'schema' => (
     is  => 'rw',

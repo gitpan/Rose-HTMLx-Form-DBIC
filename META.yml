@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Rose-HTMLx-Form-DBIC
-version:            0.04
+version:            0.05
 abstract:           Integration of Rose::HTML::Form with DBIx::Class
 author:
     - Zbigniew Lukasia
