@@ -11,7 +11,7 @@ WriteMakefile(
     PREREQ_PM    => {
                      'Test::Simple' => 0.44,
                      'Rose::Object' => 0.85,
-                     'Rose::HTML::Object' => 0.554,
+                     'Rose::HTML::Object' => '0.600',
                      'DBIx::Class::ResultSet::RecursiveUpdate' => 0,
                      'Moose' => 0,
                      'String::Random' => 0,
