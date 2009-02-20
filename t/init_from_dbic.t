@@ -1,7 +1,7 @@
 # -*- perl -*-
 
 use strict;
-use Test::More tests => 7;
+use Test::More tests => 8;
 use lib 't/lib';
 use DBSchema;
 use Data::Dumper;
@@ -24,6 +24,8 @@ $form->validate;
 
 my $value = $form->field( 'name' )->output_value;
 is ( $value, 'Picnick under the Hanging Rock', 'Dvd name set' );
+$value = $form->field( 'owner' )->internal_value;
+is ( $value, 1, 'Owner set' );
 is_deeply ( [ $form->field( 'tags' )->internal_value ], [ '2', '3' ], 'Tags set' );
 #$value = $form->field( 'creation_date' )->output_value;
 #is( "$value", '2003-01-16T23:12:01', 'Date set');

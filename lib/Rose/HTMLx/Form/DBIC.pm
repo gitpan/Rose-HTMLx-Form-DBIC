@@ -1,6 +1,7 @@
 package Rose::HTMLx::Form::DBIC;
 use strict;
 use Rose::HTML::Form;
+use Scalar::Util qw( blessed );
 use Carp;
 use Moose;
 
@@ -8,7 +9,7 @@ use Moose;
 BEGIN {
     use Exporter ();
     use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-    $VERSION     = '0.06';
+    $VERSION     = '0.07';
 #    @ISA         = qw(Exporter);
     #Give a hoot don't pollute, do not export more than needed by default
 #    @EXPORT      = qw( );
@@ -107,7 +108,11 @@ sub init_with_dbic {
                 $field->add_values( map{ $_->$pk } $object->$name());
             }
             else{
-                $field->input_value(scalar $object->$name());
+                my $value = scalar $object->$name();
+                if( blessed( $value ) && $value->isa( 'DBIx::Class::Row' ) ){
+                    ( $value ) = $value->id;
+                }
+                $field->input_value( $value );
             }
         }
     }

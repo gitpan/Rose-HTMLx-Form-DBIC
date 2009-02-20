@@ -12,7 +12,7 @@ sub build_form {
     $self->add_fields (
         name  => { type => 'text',  size => 100, required => 1, },
         tags  => { type => 'selectbox',  multiple => 1, },
-        owner => { type => 'selectbox',  value => 1 },
+        owner => { type => 'selectbox',   },
 #        creation_date => $datetime_field,
     );
     $self->add_forms ( current_borrower => UserForm->new );

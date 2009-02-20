@@ -16,6 +16,7 @@ WriteMakefile(
                      'Moose' => 0,
                      'String::Random' => 0,
                      'Template' => 0,
+                     'Scalar::Util' => '1.19',
                     },
 );
 
