@@ -5,7 +5,7 @@ use warnings;
 use Moose;
 use DBIx::Class;
 use Template;
-use version; our $VERSION = qv('0.0.2');
+use version; our $VERSION = qv('0.0.3');
 
 has 'schema' => (
     is  => 'rw',
@@ -121,14 +121,18 @@ sub get_elements {
         next if grep { $_ eq $rel } @exclude;
         next if grep { $_->[1] eq $rel } $self->m2m_for_class($class);
         my $info = $source->relationship_info($rel);
-        push @exclude, get_self_cols( $info->{cond} );
+        my @self_cols = get_self_cols( $info->{cond} );
+        push @exclude, @self_cols;
         my $rel_class = _strip_class( $info->{class} );
         my $elem_conf;
         if ( ! ( $info->{attrs}{accessor} eq 'multi' ) ) {
-            push @fields, {
-                type => 'selectbox',
-                name => $rel,
+            my $new_element = { 
+                name => $rel, 
+                type => 'selectbox' 
             };
+            my $col_info = $source->column_info($self_cols[0]);
+            $new_element->{required} = 1 if not $col_info->{is_nullable};
+            push @fields, $new_element;
         }
         elsif( $level < 1 ) {
             my @new_exclude = get_foreign_cols ( $info->{cond} );

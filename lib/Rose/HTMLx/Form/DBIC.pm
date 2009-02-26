@@ -9,7 +9,7 @@ use Moose;
 BEGIN {
     use Exporter ();
     use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-    $VERSION     = '0.07';
+    $VERSION     = '0.08';
 #    @ISA         = qw(Exporter);
     #Give a hoot don't pollute, do not export more than needed by default
 #    @EXPORT      = qw( );
@@ -225,7 +225,8 @@ sub _master_relation_cond {
 
 =head1 NAME
 
-Rose::HTMLx::Form::DBIC - Module abstract (<= 44 characters) goes here
+Rose::HTMLx::Form::DBIC - Filling Forms with data from DBIC and saving data from Forms 
+to DBIC records.
 
 =head1 SYNOPSIS
 
@@ -266,7 +267,6 @@ This module exports functions integrating Rose::HTML::Form with DBIx::Class.
 
 
 =head1 BUGS
-
 
 
 =head1 SUPPORT

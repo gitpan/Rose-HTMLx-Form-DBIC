@@ -6,7 +6,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME         => 'Rose::HTMLx::Form::DBIC',
     VERSION_FROM => 'lib/Rose/HTMLx/Form/DBIC.pm', # finds \$VERSION
-    AUTHOR       => 'Zbigniew Lukasia',
+    AUTHOR       => 'Zbigniew Lukasiak',
     ABSTRACT     => 'Integration of Rose::HTML::Form with DBIx::Class',
     PREREQ_PM    => {
                      'Test::Simple' => 0.44,
@@ -18,5 +18,6 @@ WriteMakefile(
                      'Template' => 0,
                      'Scalar::Util' => '1.19',
                     },
+   LICENSE=>'perl', 
 );
 
